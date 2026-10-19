@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Meeting Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header -->
+    <div class="header">
+      <h1>🎙️ AI Meeting Assistant</h1>
+      <p>Upload your meeting recording — get instant summary & action items</p>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-box" id="uploadBox">
+      <div class="upload-icon">📁</div>
+      <p class="upload-text">Drag & drop your audio file here</p>
+      <p class="upload-sub">or</p>
+      <label class="upload-btn" for="fileInput">Choose File</label>
+      <input type="file" id="fileInput" accept="audio/*" hidden>
+      <p class="upload-formats">Supports: MP3, MP4, WAV, M4A (max 25MB)</p>
+    </div>
+
+    <!-- File Selected -->
+    <div class="file-selected" id="fileSelected" style="display:none">
+      <span id="fileName">audio.mp3</span>
+      <button class="process-btn" id="processBtn">
+        ⚡ Generate Summary
+      </button>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading" style="display:none">
+      <div class="spinner"></div>
+      <p id="loadingText">🎙️ Transcribing audio...</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results" id="results" style="display:none">
+
+      <!-- Summary Card -->
+      <div class="card">
+        <div class="card-header">
+          <h2 id="meetingTitle">Meeting Title</h2>
+          <div class="meta">
+            <span id="meetingDate">📅 Date</span>
+            <span id="meetingDuration">⏱️ Duration</span>
+          </div>
+        </div>
+
+        <div class="summary-text" id="meetingSummary"></div>
+      </div>
+
+      <!-- Attendees -->
+      <div class="card">
+        <h3>👥 Attendees</h3>
+        <div class="attendees" id="attendeesList"></div>
+      </div>
+
+      <!-- Key Points -->
+      <div class="card">
+        <h3>📌 Key Points</h3>
+        <ul class="points-list" id="keyPointsList"></ul>
+      </div>
+
+      <!-- Action Items -->
+      <div class="card">
+        <h3>✅ Action Items</h3>
+        <div class="action-items" id="actionItemsList"></div>
+      </div>
+
+      <!-- Transcript -->
+      <div class="card">
+        <div class="transcript-header">
+          <h3>📝 Full Transcript</h3>
+          <button class="copy-btn" id="copyBtn">📋 Copy</button>
+        </div>
+        <div class="transcript-text" id="transcriptText"></div>
+      </div>
+
+      <!-- New Meeting Button -->
+      <button class="new-btn" id="newBtn">🔄 Process Another Meeting</button>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
